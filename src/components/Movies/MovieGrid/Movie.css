@@ -1,0 +1,30 @@
+.movie-item {
+    position: relative;
+    /* display: flex;
+    justify-content: center; */
+    cursor: pointer;
+}
+
+.movie-poster {
+    width: 100%;
+}
+
+.movie-item:hover {
+    /* -webkit-filter: brightness(30%); */
+}
+
+.movie-title {
+    background-image: url("../../../images/mask-title.png");
+    position: absolute;
+    z-index: 2;
+    bottom: 0;
+    width: 100%;
+    padding: 10px;
+}
+
+.movie-title h2 {
+    color: white;
+    font-size: 14px;
+    font-weight: normal;
+    text-align: center;
+}

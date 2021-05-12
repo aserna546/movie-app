@@ -1,0 +1,25 @@
+.side-bar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 350px;
+    background: #1d1b1c;
+    border-left: 1px solid #151515;
+    z-index: 3;
+    padding: 20px;
+}
+
+.side-bar::before {
+    content: "";
+    width: 1px;
+    height: 100%;
+    position: absolute;
+    left: 0px;
+    top: 0;
+    background: #333;
+}
+
+.side-bar .movies-side {
+    height: 100px;
+}
