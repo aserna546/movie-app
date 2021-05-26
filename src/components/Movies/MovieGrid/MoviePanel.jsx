@@ -1,10 +1,7 @@
 import "./MoviePanel.css";
 import { truncate } from "../../../utilities/helpers";
 export default function MoviePanel({ movie, hovered }) {
-  const releaseDate = new Date(
-    movie.media_type === "movie" ? movie.release_date : movie.first_air_date
-  );
-
+  const { release_date } = movie;
   return (
     <div className="panel" style={{ display: hovered ? "block" : "none" }}>
       <div className="panel-title">{movie.title}</div>
@@ -13,7 +10,7 @@ export default function MoviePanel({ movie, hovered }) {
           <span className="movie-info rating">
             TMDb: {movie.vote_average * 10}%
           </span>
-          <span className="movie-info">{releaseDate.getFullYear()}</span>
+          <span className="movie-info">{release_date.getFullYear()}</span>
           <span className="movie-info">{movie.original_language}</span>
         </div>
         <div>

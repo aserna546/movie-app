@@ -49,7 +49,7 @@ export function mapResult(res, width, posterUrl) {
       vote_count,
       vote_average,
       title,
-      release_date: new Date(release_date).getFullYear(),
+      release_date: new Date(release_date), // make sure to change data type
       original_language,
       genre_ids,
       overview,

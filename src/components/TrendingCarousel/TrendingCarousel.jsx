@@ -1,11 +1,12 @@
 import Carousel from "react-bootstrap/Carousel";
 import CarouselItem from "react-bootstrap/esm/CarouselItem";
-import "./TopRatedCarousel.css";
+import "./TrendingCarousel.css";
 import { truncate } from "../../utilities/helpers";
-import { useFetchTrending } from "../../hooks/Services";
+import { useFetchMovies } from "../../hooks/Services";
 
-export default function TopRatedCarousel() {
-  const trendingMovies = useFetchTrending(5);
+export default function TrendingCarousel() {
+  const urlPath = "/trending/movie/day";
+  const trendingMovies = useFetchMovies(urlPath, 5, 1280, 1);
   return (
     <div className="carousel">
       <Carousel interval={2000} fade={true} indicators={true}>

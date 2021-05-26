@@ -17,6 +17,19 @@ a {
     outline: none;
 }
 
+::-webkit-scrollbar {
+  width: 9px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: #838282;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #4d4b4b;
+}
+
 a:hover {
     color: white;
 }

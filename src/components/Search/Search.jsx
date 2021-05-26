@@ -38,7 +38,7 @@ export default function Search() {
             : { display: "block" }
         }
       >
-        <MovieList movies={movies}></MovieList>
+        <MovieList movies={movies} fullDate={false}></MovieList>
         <a href="" className="movie-search-link">
           View all
         </a>

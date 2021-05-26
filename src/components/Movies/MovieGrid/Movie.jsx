@@ -2,7 +2,6 @@ import { useState } from "react";
 import "./Movie.css";
 import MoviePanel from "./MoviePanel";
 export default function Movie({ movie, panelView }) {
-  const base_url = "https://image.tmdb.org/t/p/w200/";
   const [hovered, setHovered] = useState(false);
 
   return (
@@ -11,11 +10,7 @@ export default function Movie({ movie, panelView }) {
       onMouseLeave={() => setHovered(false)}
       className="movie-grid-item"
     >
-      <img
-        className="movie-poster"
-        src={base_url + movie.poster_path}
-        alt="Not Found"
-      />
+      <img className="movie-poster" src={movie.movieImage} alt="Not Found" />
       <div className="movie-title">
         <h2>{movie.title}</h2>
       </div>
