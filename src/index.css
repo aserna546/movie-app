@@ -11,6 +11,16 @@ body {
   color: white;
 }
 
+a {
+    color: #dfdfdf;
+    text-decoration: none !important;
+    outline: none;
+}
+
+a:hover {
+    color: white;
+}
+
 .btn-danger {
   background-color: #c91c55;
 }

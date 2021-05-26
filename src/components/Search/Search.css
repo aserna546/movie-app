@@ -1,0 +1,57 @@
+.search {
+    float: right;
+    margin-top: 19px;
+    margin-right: 100px;
+    position: relative;
+}
+
+.search input {
+    background: #232323;
+    border-radius: 3px;
+    border: 1px solid #111;
+    padding-right: 50px;
+    height: 2.2rem;
+    color: white;
+}
+
+.search input:focus {
+    outline: none;
+    box-shadow: 0 0 2px grey;
+}
+
+.search .search-suggest {
+    background: #404040;
+    width: 350px;
+    border-top: 1px solid #c91c55;
+    overflow: hidden;
+    display: block;
+    position: absolute;
+    top: 40px;
+    right: 0;
+    border-radius: 3px;
+    box-shadow: 0 0 3px rgb(0 0 0 / 20%);
+}
+
+.movie-search-link {
+    width: 100%;
+    display: block;
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    background: #333;
+    color: #c91c55;
+    font-weight: bold;
+    text-align: center;
+}
+
+.icon {
+    position: absolute;
+    right: 8px;
+    top: 10px;
+    color: #b1b1b1;
+} 
+
+.icon:hover {
+    color: white;
+    cursor: pointer;
+}

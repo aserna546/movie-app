@@ -3,17 +3,19 @@ import NavBar from "./NavBar/NavBar";
 import { movies } from "../MovieData";
 import "./App.css";
 import TopRatedCarousel from "./TopRated/TopRatedCarousel";
-import { useEffect, useState } from "react";
 import SideBar from "./SideBar/SideBar";
+import HeaderGrid from "./HeaderGrid/HeaderGrid";
 
 function App() {
   return (
     <div className="main">
       <NavBar></NavBar>
       <SideBar></SideBar>
-      <TopRatedCarousel></TopRatedCarousel>
+      <div className="top-content">
+        <TopRatedCarousel></TopRatedCarousel>
+      </div>
       <div className="container">
-        <h1>Movies</h1>
+        <HeaderGrid title="Lastest Movies"></HeaderGrid>
         <MovieGrid movies={movies} panelView={true}></MovieGrid>
       </div>
     </div>

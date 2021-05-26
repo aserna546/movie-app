@@ -1,0 +1,30 @@
+.list-thumb {
+    float: left;
+    width: 40px;
+    height: 60px;
+    display: inline-block;
+}
+
+.movie-info {
+    padding-left: 50px;
+    color: #aaa;
+    font-size: 12px;
+}
+
+.movie-list-item {
+    padding: 10px;
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    color: #888;
+    border-bottom: 1px solid #4C4C4C;
+}
+
+.movie-info p {
+    margin-bottom: 0;
+}
+
+.list-title {
+    color: #fff;
+    font-size: 14px;
+}

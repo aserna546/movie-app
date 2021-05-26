@@ -1,17 +1,11 @@
-import { movies } from "../../../MovieData.js";
 import MovieListItem from "./MovieListItem.jsx";
-export default function MovieList() {
+import "./MovieList.css";
+export default function MovieList({ movies }) {
   return (
-    <div>
-      <ul>
-        {movies.map((movie, i) => {
-          return (
-            <li>
-              <MovieListItem movie={movie}></MovieListItem>
-            </li>
-          );
-        })}
-      </ul>
-    </div>
+    <ul className="movie-list">
+      {movies.map((movie, i) => {
+        return <MovieListItem key={i} movie={movie}></MovieListItem>;
+      })}
+    </ul>
   );
 }

@@ -9,9 +9,13 @@ export default function Movie({ movie, panelView }) {
     <div
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className="movie-item"
+      className="movie-grid-item"
     >
-      <img className="movie-poster" src={base_url + movie.poster_path} alt="" />
+      <img
+        className="movie-poster"
+        src={base_url + movie.poster_path}
+        alt="Not Found"
+      />
       <div className="movie-title">
         <h2>{movie.title}</h2>
       </div>

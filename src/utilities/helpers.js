@@ -19,3 +19,42 @@ export const truncate = (string, length) => {
     ? string
     : string.slice(0, length - 2) + "...";
 };
+
+// map array of movies to new object
+export function mapResult(res, width, posterUrl) {
+  return res.map((movie) => {
+    // deconstruct movie
+    const {
+      poster_path,
+      adult,
+      backdrop_path,
+      id,
+      vote_count,
+      vote_average,
+      title,
+      release_date,
+      genre_ids,
+      original_language,
+      overview,
+      popularity,
+    } = movie;
+
+    const movieObject = {
+      movieImage: poster_path ? posterUrl + width + poster_path : undefined,
+      adult,
+      backgroundImage: backdrop_path
+        ? posterUrl + width + backdrop_path
+        : undefined,
+      id,
+      vote_count,
+      vote_average,
+      title,
+      release_date: new Date(release_date).getFullYear(),
+      original_language,
+      genre_ids,
+      overview,
+      popularity,
+    };
+    return movieObject;
+  });
+}

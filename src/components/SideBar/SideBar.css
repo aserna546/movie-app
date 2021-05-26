@@ -10,6 +10,43 @@
     padding: 20px;
 }
 
+.side-bar-top {
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+@media screen and (max-height: 999px) {
+    .side-bar-top {
+        height: 600px;
+    }
+}
+
+@media screen and (max-height: 850px) {
+    .side-bar-top {
+        height: 520px;
+    }
+}
+
+@media screen and (max-height: 800px) {
+    .side-bar-top {
+        height: 400px;
+    }
+}
+
+@media screen and (max-height: 800px) {
+    .side-bar-top {
+        height: 400px;
+    }
+}
+
+.side-bar-bottom {
+    padding: 20px;
+}
+
+.side-bar-bottom img {
+    width: 100%;
+}
+
 .side-bar::before {
     content: "";
     width: 1px;
@@ -20,6 +57,15 @@
     background: #333;
 }
 
+.side-bar hr {
+    margin-left: -20px;
+    width: calc(100% + 40px);;
+}
+
 .side-bar .movies-side {
     height: 100px;
+}
+
+.logo {
+    filter: brightness(0) saturate(100%) invert(19%) sepia(92%) saturate(3647%) hue-rotate(329deg) brightness(81%) contrast(92%);
 }

@@ -1,15 +1,22 @@
+import { genreListString } from "../../../utilities/GenreMap";
+import "./MovieListItem.css";
 export default function MovieListItem({ movie }) {
-  const base_url = "https://image.tmdb.org/t/p/w200/";
   return (
-    <div>
-      <img src={base_url + movie.poster_path} alt="" />
+    <li className="movie-list-item">
+      <img className="list-thumb" src={movie.movieImage} alt="" />
       <div className="movie-info">
-        <a href="">{movie.title}</a>
+        <a className="list-title" href="https://www.themoviedb.org/">
+          {movie.title}
+        </a>
         <p>{movie.release_date}</p>
-        {movie.genre_ids.map((id) => {
-          return <a href="">{id} ,</a>;
+        {genreListString(movie.genre_ids).map((genre, i) => {
+          return (
+            <a key={i} href="">
+              {genre}
+            </a>
+          );
         })}
       </div>
-    </div>
+    </li>
   );
 }

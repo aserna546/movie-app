@@ -1,17 +1,18 @@
-.movie-item {
+.movie-grid-item {
     position: relative;
     /* display: flex;
     justify-content: center; */
     cursor: pointer;
+    margin: 5px;
 }
 
 .movie-poster {
     width: 100%;
 }
 
-.movie-item:hover {
-    /* -webkit-filter: brightness(30%); */
-}
+/* .movie-item:hover {
+     -webkit-filter: brightness(30%); 
+} */
 
 .movie-title {
     background-image: url("../../../images/mask-title.png");

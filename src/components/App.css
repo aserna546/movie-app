@@ -10,6 +10,10 @@
     margin-right: auto;
 }
 
+.top-content {
+    margin-bottom: 20px;
+}
+
 @media screen and (min-width: 1600px) {
     .container {
         width: 96% !important;

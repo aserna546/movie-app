@@ -1,0 +1,20 @@
+.movie-list {    
+    list-style: none;
+    padding: 0;
+    position: relative;
+    z-index: 5;
+    margin-bottom: 0;
+}
+
+.movie-list li {
+    padding: 10px;
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    color: #888;
+    border-bottom: 1px solid #4C4C4C;
+}
+
+.movie-list li:hover{
+    background: #454545;
+}

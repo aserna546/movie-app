@@ -1,5 +1,6 @@
 import "./NavBar.css";
 import { useEffect, useState } from "react";
+import Search from "../Search/Search";
 
 export default function NavBar(props) {
   const [visible, setVisible] = useState(true);
@@ -44,10 +45,7 @@ export default function NavBar(props) {
           </li>
         </ul>
       </div>
-      <div className="search">
-        <input type="text" placeholder="Searching..." />
-        <i className="fas fa-search fa-lg icon"></i>
-      </div>
+      <Search></Search>
     </header>
   );
 }
