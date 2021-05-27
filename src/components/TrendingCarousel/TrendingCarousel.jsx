@@ -6,7 +6,7 @@ import { useFetchMovies } from "../../hooks/Services";
 
 export default function TrendingCarousel() {
   const urlPath = "/trending/movie/day";
-  const trendingMovies = useFetchMovies(urlPath, 5, 1280, 1);
+  const [trendingMovies] = useFetchMovies(urlPath, 5, 1280, 1);
   return (
     <div className="carousel">
       <Carousel interval={2000} fade={true} indicators={true}>

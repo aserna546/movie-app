@@ -14,22 +14,24 @@ const apiKey = "0fa0b27f454eb4a6fd29bbeaae965e3b";
  */
 export function useSearchMovies(search, number, page = 1) {
   const [searchMovies, setSearchMovies] = useState([]);
-  const url = `${movieBaseUrl}/search/movie?query=${search}&page=${page}&api_key=${apiKey}`;
+  const [pages, setPages] = useState();
+  const url = `${movieBaseUrl}/search/movie?query=${search}&api_key=${apiKey}`;
   useEffect(() => {
     if (search.length > 1) {
-      fetchData(url, number, setSearchMovies, 200);
+      fetchData(url, number, setSearchMovies, setPages, 200, page);
     }
   }, [page, search, number, url]); // eslint-disable-line react-hooks/exhaustive-deps
-  return searchMovies;
+  return [searchMovies, setSearchMovies, pages];
 }
 
-export function useDiscoverMovies(urlQuery, number, width, page) {
+export function useDiscoverMovies(urlQuery, number, width, page = 1) {
   const [movies, setMovies] = useState([]);
-  const url = `${movieBaseUrl}/discover/movie?${urlQuery}&page=${page}&api_key=${apiKey}`;
+  const [pages, setPages] = useState();
+  const url = `${movieBaseUrl}/discover/movie?${urlQuery}&api_key=${apiKey}`;
   useEffect(() => {
-    fetchData(url, number, setMovies, width);
+    fetchData(url, number, setMovies, setPages, width, page);
   }, [page, url, urlQuery]); // eslint-disable-line react-hooks/exhaustive-deps
-  return movies;
+  return [movies, pages];
 }
 
 /**
@@ -43,16 +45,20 @@ export function useDiscoverMovies(urlQuery, number, width, page) {
 
 export function useFetchMovies(urlPath, number = 16, width = 200, page = 1) {
   const [movies, setMovies] = useState([]);
-  const url = `${movieBaseUrl}${urlPath}?page=${page}&api_key=${apiKey}`;
+  const [pages, setPages] = useState();
+  const url = `${movieBaseUrl}${urlPath}?api_key=${apiKey}`;
   useEffect(() => {
-    fetchData(url, number, setMovies, width);
+    fetchData(url, number, setMovies, setPages, width, page);
   }, [page, url]); // eslint-disable-line react-hooks/exhaustive-deps
-  return movies;
+  return [movies, pages];
 }
 
-async function fetchData(url, number, setMovies, width) {
-  const res = await fetch(url);
+async function fetchData(url, number, setMovies, setPages, width, page = 1) {
+  let pages = 0;
+  const res = await fetch(`${url}&page=${page}`);
   const json = await res.json();
+  pages = json.total_pages;
   const movies = mapResult(json.results.slice(0, number), width, posterUrl);
   setMovies(movies);
+  setPages(pages);
 }

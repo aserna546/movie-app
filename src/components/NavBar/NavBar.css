@@ -24,7 +24,7 @@ header {
     color: #b1b1b1;
 }
 
-.links a:hover {
+.links li a:hover {
     color: white;
 }
 

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link, useHistory } from "react-router-dom";
 import { useSearchMovies } from "../../hooks/Services";
 import MovieList from "../Movies/MovieList/MovieList";
 import "./Search.css";
@@ -6,10 +7,27 @@ export default function Search() {
   const [foucus, setFocused] = useState(false);
   const [search, setSearch] = useState("");
   const [hoverd, setHovered] = useState(false);
+  const history = useHistory();
+  const handleSubmit = (event) => {
+    if (event.code === "Enter") {
+      let location = {
+        pathname: `/search/${search}`,
+        state: {
+          currentPage: 1,
+        },
+      };
+      history.push(location);
+      setSearch("");
+      setMovies([]);
+    }
+  };
 
-  const movies = useSearchMovies(search, 5, 1);
+  const [movies, setMovies] = useSearchMovies(search, 5, 1);
   return (
     <div
+      onKeyDown={(event) => {
+        handleSubmit(event);
+      }}
       onFocus={() => setFocused(true)}
       onBlur={() => {
         if (!hoverd) {
@@ -26,8 +44,9 @@ export default function Search() {
         value={search}
         placeholder="Searching..."
       />
-      <i className="fas fa-search fa-lg icon"></i>
-
+      <Link to={`/search/${search}`}>
+        <i className="fas fa-search fa-lg icon"></i>
+      </Link>
       <div
         onMouseOver={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
@@ -39,9 +58,9 @@ export default function Search() {
         }
       >
         <MovieList movies={movies} fullDate={false}></MovieList>
-        <a href="" className="movie-search-link">
+        <Link to={`/search/${search}`} className="movie-search-link">
           View all
-        </a>
+        </Link>
       </div>
     </div>
   );

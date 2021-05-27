@@ -10,7 +10,9 @@ export default function MoviePanel({ movie, hovered }) {
           <span className="movie-info rating">
             TMDb: {movie.vote_average * 10}%
           </span>
-          <span className="movie-info">{release_date.getFullYear()}</span>
+          {!isNaN(release_date) && (
+            <span className="movie-info">{release_date.getFullYear()}</span>
+          )}
           <span className="movie-info">{movie.original_language}</span>
         </div>
         <div>

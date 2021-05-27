@@ -1,0 +1,15 @@
+.pages-pag {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.pagination > li > a {
+    margin: 0 10px;
+    color: #aaa;
+    background: #333;
+    border: none;
+}
+
+.pagination > .active > .page-link{
+    background: #c91c55;
+}
