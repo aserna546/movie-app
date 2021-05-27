@@ -1,3 +1,4 @@
+import noImage from "../images/330px-No-Image-Placeholder.svg.png";
 export function debounce(func, wait, immediate) {
   var timeout;
   return function () {
@@ -40,7 +41,7 @@ export function mapResult(res, width, posterUrl) {
     } = movie;
 
     const movieObject = {
-      movieImage: poster_path ? posterUrl + width + poster_path : undefined,
+      movieImage: poster_path ? posterUrl + width + poster_path : noImage,
       adult,
       backgroundImage: backdrop_path
         ? posterUrl + width + backdrop_path
