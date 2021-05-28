@@ -1,13 +1,19 @@
 .panel {
     position: absolute;
     top: -126px;
-    left: 200px;
+    left: 0;
     z-index: 10000;
     background-color: #333;
     width: 320px;
     color: #aaa;
     border-top: 2px solid #C91C55;
     -webkit-filter: none;
+}
+
+@media screen and (max-width: 600px) {
+    .panel {
+        display: none !important;
+    }
 }
 
 .panel-title {
