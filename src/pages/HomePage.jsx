@@ -14,9 +14,7 @@ export default function HomePage() {
   const [latestMovies] = useDiscoverMovies(urlQuery, 16, 500, 1);
   return (
     <div className="home-page">
-      <div className="top-content">
-        <TrendingCarousel></TrendingCarousel>
-      </div>
+      <TrendingCarousel></TrendingCarousel>
       <div className="container">
         <HeaderGrid title="Popular Movies"></HeaderGrid>
         <MovieGrid movies={popularMovies} panelView={true}></MovieGrid>

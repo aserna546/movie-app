@@ -15,6 +15,11 @@
     overflow-x: hidden;
 }
 
+@media screen and (max-width: 1440px) {
+    .side-bar {
+        display: none;
+    }
+}
 @media screen and (max-height: 999px) {
     .side-bar-top {
         height: 600px;

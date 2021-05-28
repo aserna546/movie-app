@@ -8,3 +8,26 @@
     margin-bottom: 10px;
 }
 
+@media screen and (min-width: 300px) {
+    .movie-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (min-width: 500px) {
+    .movie-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .movie-grid {
+        grid-template-columns: repeat(6, 1fr);
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .movie-grid {
+        grid-template-columns: repeat(8, 1fr);
+    }
+}

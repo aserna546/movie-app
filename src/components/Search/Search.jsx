@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useHistory, useLocation } from "react-router-dom";
 import { useSearchMovies } from "../../hooks/Services";
 import MovieList from "../Movies/MovieList/MovieList";
 import "./Search.css";
@@ -8,6 +8,7 @@ export default function Search() {
   const [search, setSearch] = useState("");
   const [hoverd, setHovered] = useState(false);
   const history = useHistory();
+  const location = useLocation();
   const handleSubmit = (event) => {
     if (event.code === "Enter") {
       let location = {
@@ -21,6 +22,12 @@ export default function Search() {
       setMovies([]);
     }
   };
+
+  useEffect(() => {
+    // when location changes resets search string and movies
+    setSearch("");
+    setMovies([]);
+  }, [location]);
 
   const [movies, setMovies] = useSearchMovies(search, 5, 1);
   return (
