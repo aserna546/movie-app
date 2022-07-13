@@ -1,9 +1,31 @@
 import "./MoviePanel.css";
 import { truncate } from "../../../utilities/helpers";
-export default function MoviePanel({ movie, hovered }) {
+import { useEffect, useState } from "react";
+export default function MoviePanel({
+  movie,
+  hovered,
+  position,
+  onHovered,
+  panelHovered,
+}) {
   const { release_date } = movie;
+  const [posStyle, setPosStyle] = useState({});
+
+  useEffect(() => {
+    const viewStyle = {
+      display: hovered || panelHovered ? "block" : "none",
+      top: `${position.y}px`,
+      left: `${position.x}px`,
+    };
+    setPosStyle(viewStyle);
+  }, [hovered, panelHovered]);
   return (
-    <div className="panel" style={{ display: hovered ? "block" : "none" }}>
+    <div
+      onMouseEnter={() => onHovered(true)}
+      onMouseLeave={() => onHovered(false)}
+      className="panel"
+      style={posStyle}
+    >
       <div className="panel-title">{movie.title}</div>
       <div className="panel-content">
         <div className="top-content">

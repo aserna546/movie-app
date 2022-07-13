@@ -62,3 +62,24 @@ async function fetchData(url, number, setMovies, setPages, width, page = 1) {
   setMovies(movies);
   setPages(pages);
 }
+
+export function useFetchMovieDetail(id, withCredits = false) {
+  const [details, setDetails] = useState({});
+  const url = `${movieBaseUrl}/movie/${id}${
+    withCredits && "/credits"
+  }?api_key=${apiKey}`;
+  useEffect(() => {
+    fetchDetails(url, setDetails);
+  }, [id, url]); // eslint-disable-line react-hooks/exhaustive-deps
+  return details;
+}
+
+async function fetchDetails(url, setDetails) {
+  const res = await fetch(url);
+  const json = await res.json();
+  const { backdrop_path, ...detail } = json;
+  setDetails({
+    imagePath: posterUrl + "1280" + backdrop_path,
+    ...detail,
+  });
+}

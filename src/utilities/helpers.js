@@ -45,7 +45,7 @@ export function mapResult(res, width, posterUrl) {
       adult,
       backgroundImage: backdrop_path
         ? posterUrl + width + backdrop_path
-        : undefined,
+        : noImage,
       id,
       vote_count,
       vote_average,

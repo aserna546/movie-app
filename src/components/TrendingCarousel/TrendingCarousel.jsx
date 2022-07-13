@@ -2,11 +2,9 @@ import Carousel from "react-bootstrap/Carousel";
 import CarouselItem from "react-bootstrap/esm/CarouselItem";
 import "./TrendingCarousel.css";
 import { truncate } from "../../utilities/helpers";
-import { useFetchMovies } from "../../hooks/Services";
+import { Link } from "react-router-dom";
 
-export default function TrendingCarousel() {
-  const urlPath = "/trending/movie/day";
-  const [trendingMovies] = useFetchMovies(urlPath, 5, 1280, 1);
+export default function TrendingCarousel({ trendingMovies }) {
   return (
     <div className="carousel">
       <Carousel interval={2000} fade={true} indicators={true}>
@@ -24,9 +22,11 @@ export default function TrendingCarousel() {
                 <div className="slide-caption">
                   <h2>{top.title}</h2>
                   <p>{truncate(top.overview, 200)}</p>
-                  <button type="button" className="btn btn-danger mt-10">
-                    <i className="fa fa-play"></i> Watch Now
-                  </button>
+                  <Link to={`/movie/${top.id}`}>
+                    <button type="button" className="btn btn-danger mt-10">
+                      <i className="fa fa-play"></i> Watch Now
+                    </button>
+                  </Link>
                 </div>
               </Carousel.Caption>
             </CarouselItem>

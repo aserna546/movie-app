@@ -1,14 +1,17 @@
+import { Link } from "react-router-dom";
 import { genreListString } from "../../../utilities/GenreMap";
 import "./MovieListItem.css";
 export default function MovieListItem({ movie, fullDate }) {
   const { release_date } = movie;
   return (
     <li className="movie-list-item">
-      <img className="list-thumb" src={movie.movieImage} alt="" />
+      <Link to={`/movie/${movie.id}`}>
+        <img className="list-thumb" src={movie.movieImage} alt="" />
+      </Link>
       <div className="movie-info">
-        <a className="list-title" href="https://www.themoviedb.org/">
+        <Link to={`/movie/${movie.id}`} className="list-title">
           {movie.title}
-        </a>
+        </Link>
         {!isNaN(release_date.getTime()) && (
           <p>
             {fullDate

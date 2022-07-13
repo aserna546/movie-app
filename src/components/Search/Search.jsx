@@ -11,15 +11,7 @@ export default function Search() {
   const location = useLocation();
   const handleSubmit = (event) => {
     if (event.code === "Enter") {
-      let location = {
-        pathname: `/search/${search}`,
-        state: {
-          currentPage: 1,
-        },
-      };
-      history.push(location);
-      setSearch("");
-      setMovies([]);
+      history.push(`/search/${search}`);
     }
   };
 
